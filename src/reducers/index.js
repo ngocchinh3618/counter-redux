@@ -7,9 +7,19 @@ const initialState = {
 const reducerCalculation = (state = initialState, actions)=>{
     switch (actions.type) {
       case calculation.ADD:
-        console.log(actions);
+        console.log(`actions`, actions)
         return {
-          ...state, counter: actions.value + state.counter
+          ...state, counter: state.counter + actions.value
+        }
+        case calculation.SUB:
+        console.log(`actions`, actions)
+        return {
+          ...state, counter: state.counter - actions.value
+        }
+        case calculation.MUL:
+        console.log(`actions`, actions)
+        return {
+          ...state, counter: state.counter * actions.value
         }
       default:
         return state;

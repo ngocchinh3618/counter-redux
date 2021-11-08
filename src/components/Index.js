@@ -1,11 +1,11 @@
-import {React, useState} from 'react'
-import { useStore } from 'react-redux'
+import {React} from 'react';
+import { useSelector } from 'react-redux'
 import BtnCount from './BtnCount';
 import * as calculation from "../actions/index";
 
 
 export default function Index() {
-  const store = useStore();
+  const user = useSelector(state => state.counter)
   const colorBtn = [
     {
       color: "danger",
@@ -14,11 +14,11 @@ export default function Index() {
     },
     {
       color: "primary",
-      type: calculation.ADD,
+      type: calculation.SUB,
       value: 1
     }, {
       color: "success",
-      type: calculation.ADD,
+      type: calculation.MUL,
       value: 10
     }
   ];
@@ -27,7 +27,7 @@ export default function Index() {
   return (
     <div>
       <div>
-        <h1>Counter:{store.getState().counter}</h1>
+        <h1>Counter:{user}</h1>
       </div>
       <div className="d-flex justify-content-center">
         {colorBtnMap}
